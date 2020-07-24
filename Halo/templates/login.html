@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+{% block body %}
+
+<section class="page-info-section">
+		<div class="container">
+			<h2>login</h2>
+			<div class="site-beradcamb">
+				<a href="/">Home</a>
+				<span><i class="fa fa-angle-right"></i>login</span>
+			</div>
+		</div>
+</section>
+
+            <div style="margin-left: 30%;">
+                <h2 class="hero-subscribe-from"> login</h2>
+
+                    <form id="log" action="login" method="post" class="hero-subscribe-from">
+                        {% csrf_token %}
+
+                        <ul style="list-style:none">
+                            <li><input type="text" name="email" placeholder="email"></li>
+                            <li><input type="password" name="password" placeholder="password"></li>
+                            <li><input type="submit" value="login"></li>
+                        </ul>
+                    </form>
+
+                    <div>
+                        {% for message in messages %}
+                            <h3>{{message}}</h3>
+                        {% endfor %}
+                    </div>
+            </div>
+
+
+
+
+
+
+    {% endblock %}
+</body>

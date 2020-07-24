@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Title {% endblock %}</title>
+    <style>
+        #navbar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: #333;
+    color: #fff;
+    justify-content: space-between;
+    z-index: 1;
+    padding: 1rem;
+}
+
+#navbar ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+#navbar ul li a {
+    color: #fff;
+    padding: 0.75rem;
+    margin: 0 0.25rem;
+}
+
+#navbar ul li a:hover {
+    background: #93cb52;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav id="navbar">
+    <h1 class="logo">
+        <span class="text-primary">
+            <i class="fas fa-book-open"></i>Edge
+        </span> Ledger
+    </h1>
+    <ul>
+       <li><a href="#home">Home</a></li>
+       <li><a href="#what">What</a></li>
+       <li><a href="login">login</a></li>
+       <li><a href="signup">Sign Up</a></li>
+    </ul>
+</nav>
+
+{% block body %}
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-family: cursive;
+            background: rgb(34, 62, 112);
+        }
+        #container{
+            margin-left: auto;
+            margin-right:auto;
+            margin-top: 50px;
+           
+            max-width: 400px;
+            /* max-height: 50%;  */
+            padding: 10px; 
+        }
+       .classform-wrap{
+            background: white;
+            padding: 15px 25px;
+           /* margin-left: 20px; */
+           /* margin-bottom: 20px; */
+        }   
+        .classform-wrap h1{
+            text-align: center;
+        }
+        .classform-wrap p {
+            text-align: center;
+        }
+        .classform-wrap .form-group  {
+            margin: 20px;
+        }
+        .classform-wrap .form-group label {
+            display: block;
+        }
+        .classform-wrap .form-group input {
+            width: 100%;
+            padding: 5px;
+        }
+        .classform-wrap button{
+            width: 100%;
+            background-color: #49c1a2;
+            padding: 10px;
+            border-radius: 10px;
+            border: solid black;
+            margin-bottom: 20px;
+        }
+        .classform-wrap button:hover {
+            background-color: red;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer p {
+            color: cornsilk;
+        }
+        footer a {
+            color: #49c1a2;
+        }
+    </style>
+</head>
+<body>
+   <div id="container">
+       <div class="classform-wrap">
+           <h1>Sign Up</h1>
+           <p>It's free and only takes a minute</p>
+            <form action="signup" method="post" class="hero-subscribe-from">
+                          {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="username">username</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password1" id="password">
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Comfirm Password</label>
+                    <input type="password" name="password2" id="confirm_password">
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <p class="bottom-text">
+                    By clicking the sign up botton, you have agreed to our
+                    <a href="#">Terms & Condition</a> and
+                    <a href="#">Privacy Policy</a>
+                </p>
+            </form>
+           <div> {% for message in messages %}
+                        <h3>{{message}}</h3>
+                        {% endfor %}
+            </div>
+       </div>
+    </div>
+           <footer>
+               <p>already have an account? <a href="/login">Login Here</a></p>
+           </footer>
+</body>
+</html>
